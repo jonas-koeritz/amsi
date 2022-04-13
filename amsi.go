@@ -1,3 +1,5 @@
+// go:build windows
+
 // The amsi package provides a Go wrapper of the Microsoft Antimalware Scan Interface.
 //
 // See: https://docs.microsoft.com/en-us/windows/win32/api/amsi/
