@@ -6,6 +6,7 @@ package amsi
 import (
 	"errors"
 	"fmt"
+	"runtime"
 	"syscall"
 	"unsafe"
 )
@@ -74,6 +75,8 @@ var ErrAmsiUnavailable = errors.New("AMSI is not available")
 //
 // See: https://docs.microsoft.com/de-de/windows/win32/api/amsi/nf-amsi-amsiinitialize
 func Initialize(appName string) (c *Context, err error) {
+	runtime.LockOSThread()
+
 	c = &Context{}
 	appNamePtr, err := syscall.UTF16PtrFromString(appName)
 	if err != nil {
@@ -160,6 +163,8 @@ func (c *Context) NotifyOperation(buffer []byte, contentName string) (result Res
 //
 // See: https://docs.microsoft.com/en-us/windows/win32/api/amsi/nf-amsi-amsiuninitialize
 func (c *Context) Uninitialize() error {
+	runtime.UnlockOSThread()
+
 	if c.handle == 0 {
 		return ErrContextNotInitialized
 	}
