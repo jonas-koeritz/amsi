@@ -176,7 +176,7 @@ func (c *Context) Uninitialize() error {
 	_, _, err := procAmsiUninitialize.Call(c.handle)
 	c.handle = 0
 
-	// BUG(jonas-koeritz): The AmsiUninitialize call will always returns "The handle is invalid"
+	// BUG(jonas-koeritz): The AmsiUninitialize call will always return "The handle is invalid"
 	// on my machine when a session has been created before.
 	// Functionality doesn't seem to be affected by this and it can be ignored.
 	if err != syscall.Errno(0) {
