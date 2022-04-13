@@ -1,3 +1,3 @@
-module github.com/jonas-koeritz/go-amsi
+module github.com/jonas-koeritz/amsi
 
 go 1.18

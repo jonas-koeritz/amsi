@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jonas-koeritz/go-amsi"
+	"github.com/jonas-koeritz/amsi"
 )
 
 func Example_scanBuffer() {
