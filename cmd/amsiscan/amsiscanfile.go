@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jonas-koeritz/go-amsi/amsi"
+	"github.com/jonas-koeritz/go-amsi"
 )
 
 func main() {
